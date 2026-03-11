@@ -4,7 +4,7 @@ targetScope = 'resourceGroup'
 @description('Base name for all resources (will be used to generate unique names)')
 @minLength(3)
 @maxLength(10)
-param baseName string = 'aikb'
+param baseName string = 'skay'
 
 @description('Location for all resources')
 param location string = resourceGroup().location
@@ -18,7 +18,7 @@ param location string = resourceGroup().location
 param environment string = 'dev'
 
 @description('GitHub repository URL for Static Web App')
-param repositoryUrl string = 'https://github.com/farzad528/azure-ai-search-knowledge-retrieval-demo'
+param repositoryUrl string = 'https://github.com/skyarkitekten/foundry-iq-demo'
 
 @description('GitHub repository branch')
 param branch string = 'main'
@@ -37,9 +37,6 @@ param deploySampleData bool = true
   'gpt-4.1-nano'
   'gpt-4.1-mini'
   'gpt-4.1'
-  'gpt-5'
-  'gpt-5-mini'
-  'gpt-5-nano'
 ])
 param chatModelName string = 'gpt-4o-mini'
 
@@ -57,7 +54,7 @@ var skuMap = {
     search: 'basic'
     openai: 'S0'
     storage: 'Standard_LRS'
-    staticWebApp: 'Free'
+    staticWebApp: 'Standard'
   }
   staging: {
     search: 'standard'
@@ -80,7 +77,7 @@ var uniqueSuffix = uniqueString(resourceGroup().id)
 var resourceNames = {
   search: '${baseName}-search-${uniqueSuffix}'
   openai: '${baseName}-openai-${uniqueSuffix}'
-  storage: toLower('${baseName}storage${uniqueSuffix}')
+  storage: toLower(take('${baseName}st${uniqueSuffix}', 24))
   hub: '${baseName}-hub-${uniqueSuffix}'
   project: '${baseName}-project-${uniqueSuffix}'
   staticWebApp: '${baseName}-web-${uniqueSuffix}'
@@ -98,34 +95,27 @@ var chatModelConfig = {
   'gpt-4o': {
     version: '2024-08-06'
     capacity: 30
+    skuName: 'Standard'
   }
   'gpt-4o-mini': {
     version: '2024-07-18'
     capacity: 30
+    skuName: 'Standard'
   }
   'gpt-4.1-nano': {
-    version: '2024-11-01'
+    version: '2025-04-14'
     capacity: 30
+    skuName: 'GlobalStandard'
   }
   'gpt-4.1-mini': {
-    version: '2024-11-01'
+    version: '2025-04-14'
     capacity: 30
+    skuName: 'Standard'
   }
   'gpt-4.1': {
-    version: '2024-11-01'
+    version: '2025-04-14'
     capacity: 30
-  }
-  'gpt-5': {
-    version: 'latest'
-    capacity: 30
-  }
-  'gpt-5-mini': {
-    version: 'latest'
-    capacity: 30
-  }
-  'gpt-5-nano': {
-    version: 'latest'
-    capacity: 30
+    skuName: 'Standard'
   }
 }
 
@@ -172,6 +162,7 @@ module openai 'modules/openai.bicep' = {
     chatModelName: chatModelName
     chatModelVersion: chatModelConfig[chatModelName].version
     chatCapacity: chatModelConfig[chatModelName].capacity
+    chatSkuName: chatModelConfig[chatModelName].skuName
   }
 }
 

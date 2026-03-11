@@ -1,4 +1,5 @@
 # Microsoft Foundry IQ Demo
+
 <img width="1289" height="495" alt="image" src="https://github.com/user-attachments/assets/7ec01135-f72f-4113-aaaf-8b637fcf27b4" />
 
 Agentic RAG demo with Foundry IQ Knowledge Bases and Microsoft Foundry Agent Service.
@@ -7,14 +8,14 @@ Agentic RAG demo with Foundry IQ Knowledge Bases and Microsoft Foundry Agent Ser
 
 ## Deploy
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Ffarzad528%2Fazure-ai-search-knowledge-retrieval-demo%2Fmain%2Finfra%2Fmain.json)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Ffarzad528%2Fazure-ai-search-knowledge-retrieval-demo)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fskyarkitekten%2Ffoundry-iq-demo%2Fmain%2Finfra%2Fmain.json)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fskyarkitekten%2Ffoundry-iq-demo)
 
 ## Quick Start
 
 ```bash
-git clone https://github.com/farzad528/azure-ai-search-knowledge-retrieval-demo.git
-cd azure-ai-search-knowledge-retrieval-demo
+git clone https://github.com/skyarkitekten/foundry-iq-demo.git
+cd foundry-iq-demo
 npm install
 cp .env.example .env.local
 # Edit .env.local with your Azure credentials
@@ -37,7 +38,7 @@ AZURE_OPENAI_API_KEY=<openai-key>
 ## Routes
 
 | Route | Description |
-|-------|-------------|
+| ------- | ------------- |
 | `/knowledge` | Manage knowledge bases and data sources |
 | `/playground` | Query knowledge bases with runtime controls |
 | `/agents` | Microsoft Foundry Agent Service integration |

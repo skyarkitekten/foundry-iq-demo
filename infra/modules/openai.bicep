@@ -38,6 +38,9 @@ param chatModelVersion string = '2024-07-18'
 @description('Chat model capacity (TPM in thousands) - safe default for new subscriptions')
 param chatCapacity int = 30
 
+@description('Chat model SKU name (Standard or GlobalStandard)')
+param chatSkuName string = 'Standard'
+
 resource openAI 'Microsoft.CognitiveServices/accounts@2023-05-01' = {
   name: openAIName
   location: location
@@ -77,7 +80,7 @@ resource chatDeployment 'Microsoft.CognitiveServices/accounts/deployments@2023-0
   parent: openAI
   name: chatDeploymentName
   sku: {
-    name: 'Standard'
+    name: chatSkuName
     capacity: chatCapacity
   }
   properties: {

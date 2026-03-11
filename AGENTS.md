@@ -8,15 +8,15 @@
 
 ## 📍 Scope & Location
 
-**Repository Root:** `c:\Dev\azure-ai-search-knowledge-retrieval-demo-main`
-
 **Git Information:**
+
 - Current Branch: `main`
 - Main Branch: `main` (use for PRs)
-- Repository: `https://github.com/farzad528/azure-ai-search-knowledge-retrieval-demo`
+- Repository: `https://github.com/skyarkitekten/foundry-iq-demo`
 
 **What This Project Is:**
-- Production-ready Next.js application (Foundry IQ Demo) for Azure AI Search Knowledge Retrieval
+
+- Demo-ready Next.js application (Foundry IQ Demo) for Azure AI Search Knowledge Retrieval
 - Showcases Knowledge Bases (Azure AI Search direct queries) and Azure AI Foundry Agent Service integration
 - **No major technical architecture changes** - feature updates only
 - Frontend: Next.js 14 + React 18 + TypeScript + TailwindCSS
@@ -27,7 +27,7 @@
 
 ## 🗂️ Project Structure
 
-```
+```text
 /
 ├── app/                          # Next.js 14 App Router (✅ MODIFY)
 │   ├── api/                      # API routes for Azure services
@@ -117,6 +117,7 @@
 ```
 
 **Legend:**
+
 - ✅ **MODIFY:** Safe to edit for features, fixes, and improvements
 - ⚠️ **MODIFY WITH CAUTION:** Only change when absolutely necessary, discuss with team first
 - ❌ **DO NOT MODIFY:** Never edit these files/directories
@@ -126,12 +127,14 @@
 ## 🛠️ Tech Stack
 
 ### **Core Framework**
+
 - **Next.js:** `^14.0.0` (App Router, Server Components, API Routes)
 - **React:** `^18.2.0` (Functional components with hooks)
 - **TypeScript:** `5.9.2` (strict mode disabled, but type safety encouraged)
 - **Node.js:** `18+` (Required)
 
 ### **Styling**
+
 - **TailwindCSS:** `^3.3.5` (Utility-first CSS)
 - **PostCSS:** `^8.4.31` (CSS processing)
 - **Autoprefixer:** `^10.4.16` (Browser compatibility)
@@ -140,27 +143,32 @@
 - **clsx + tailwind-merge:** Conditional class merging
 
 ### **UI Libraries**
+
 - **Radix UI:** `@radix-ui/react-switch` (Accessible primitives)
 - **Fluent UI:** `@fluentui/react-icons` (Microsoft icons)
 - **Lucide React:** `^0.544.0` (Icon library)
 
 ### **Forms & Validation**
+
 - **React Hook Form:** `^7.62.0` (Form state management)
 - **Zod:** `^4.1.8` (Schema validation)
 - **@hookform/resolvers:** `^5.2.1` (Form validation integration)
 
 ### **Azure Integration**
+
 - **@azure/identity:** `^4.12.0` (Azure authentication)
 - **Azure AI Search API:** `2025-11-01-preview` (Knowledge Bases)
 - **Azure AI Foundry API:** `2025-05-01` (Assistants)
 - **Azure OpenAI:** GPT-4o, GPT-4.1, text-embedding-3-small/large
 
 ### **State Management**
+
 - **React Context:** For theme (next-themes)
 - **Local Storage:** For client-side persistence
 - **URL State:** For shareable playground configurations
 
 ### **Package Manager**
+
 - **npm:** Default package manager (evidenced by `package-lock.json` presence)
 
 ---
@@ -171,8 +179,8 @@
 
 ```bash
 # Clone repository
-git clone https://github.com/farzad528/azure-ai-search-knowledge-retrieval-demo.git
-cd azure-ai-search-knowledge-retrieval-demo
+git clone https://github.com/skyarkitekten/foundry-iq-demo.git
+cd foundry-iq-demo
 
 # Install dependencies
 npm install
@@ -758,8 +766,8 @@ npm run build && npm start
 - [Azure AI Foundry Docs](https://learn.microsoft.com/azure/ai-services/agents/)
 
 **Getting Help:**
-- GitHub Issues: https://github.com/farzad528/azure-ai-search-knowledge-retrieval-demo/issues
-- GitHub Discussions: https://github.com/farzad528/azure-ai-search-knowledge-retrieval-demo/discussions
+- GitHub Issues: https://github.com/skyarkitekten/foundry-iq-demo/issues
+- GitHub Discussions: https://github.com/skyarkitekten/foundry-iq-demo/discussions
 
 ---
 
