@@ -20,6 +20,9 @@ param searchEndpoint string
 @description('Storage account resource ID to connect')
 param storageAccountId string
 
+@description('Key Vault resource ID for Hub secret management')
+param keyVaultId string
+
 // Create AI Hub (AI Studio workspace)
 resource aiHub 'Microsoft.MachineLearningServices/workspaces@2024-10-01' = {
   name: hubName
@@ -33,6 +36,7 @@ resource aiHub 'Microsoft.MachineLearningServices/workspaces@2024-10-01' = {
     description: 'Azure AI Foundry Hub for Knowledge Retrieval Demo'
     friendlyName: hubName
     storageAccount: storageAccountId
+    keyVault: keyVaultId
     publicNetworkAccess: 'Enabled'
   }
 }

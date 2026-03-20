@@ -78,6 +78,7 @@ var resourceNames = {
   hub: '${baseName}-hub-${uniqueSuffix}'
   project: '${baseName}-project-${uniqueSuffix}'
   staticWebApp: '${baseName}-web-${uniqueSuffix}'
+  keyVault: take('${baseName}-kv-${uniqueSuffix}', 24)
 }
 
 // Tags for all resources
@@ -175,6 +176,19 @@ module storage 'modules/storage.bicep' = {
   }
 }
 
+// Deploy Key Vault (required by Foundry Hub for secret management)
+module keyVault 'modules/keyvault.bicep' = {
+  name: 'deploy-keyvault'
+  params: {
+    keyVaultName: resourceNames.keyVault
+    location: location
+    tags: tags
+    // Grant the Foundry Hub managed identity Secrets Officer after it is provisioned
+    // (add foundry.outputs.hubPrincipalId here once Hub exists, or via configure-rbac.sh)
+    secretsOfficerObjectIds: []
+  }
+}
+
 // Deploy AI Foundry Hub and Project
 module foundry 'modules/foundry.bicep' = {
   name: 'deploy-foundry'
@@ -186,6 +200,7 @@ module foundry 'modules/foundry.bicep' = {
     openAIEndpoint: openai.outputs.openAIEndpoint
     searchEndpoint: search.outputs.searchEndpoint
     storageAccountId: storage.outputs.storageAccountId
+    keyVaultId: keyVault.outputs.keyVaultId
   }
 }
 
