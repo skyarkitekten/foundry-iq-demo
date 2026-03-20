@@ -27,9 +27,6 @@ param branch string = 'main'
 @secure()
 param repositoryToken string = ''
 
-@description('Deploy sample data (hotels index and Responsible AI PDF)')
-param deploySampleData bool = true
-
 @description('Chat model to deploy')
 @allowed([
   'gpt-4o'
