@@ -11,11 +11,11 @@ param location string = resourceGroup().location
 @description('Tags for AI Foundry resources')
 param tags object = {}
 
-@description('OpenAI resource ID to connect')
-param openAIResourceId string
+@description('OpenAI service endpoint URL (e.g. https://<name>.openai.azure.com/)')
+param openAIEndpoint string
 
-@description('Search resource ID to connect')
-param searchResourceId string
+@description('Azure AI Search endpoint URL (e.g. https://<name>.search.windows.net)')
+param searchEndpoint string
 
 @description('Storage account resource ID to connect')
 param storageAccountId string
@@ -60,12 +60,11 @@ resource openAIConnection 'Microsoft.MachineLearningServices/workspaces/connecti
   name: 'openai-connection'
   properties: {
     category: 'AzureOpenAI'
-    target: openAIResourceId
+    target: openAIEndpoint
     authType: 'AAD'
     isSharedToAll: true
     metadata: {
       ApiType: 'Azure'
-      ResourceId: openAIResourceId
     }
   }
 }
@@ -76,12 +75,9 @@ resource searchConnection 'Microsoft.MachineLearningServices/workspaces/connecti
   name: 'search-connection'
   properties: {
     category: 'CognitiveSearch'
-    target: searchResourceId
+    target: searchEndpoint
     authType: 'AAD'
     isSharedToAll: true
-    metadata: {
-      ResourceId: searchResourceId
-    }
   }
 }
 

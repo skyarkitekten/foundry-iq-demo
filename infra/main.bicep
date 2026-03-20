@@ -186,8 +186,8 @@ module foundry 'modules/foundry.bicep' = {
     projectName: resourceNames.project
     location: location
     tags: tags
-    openAIResourceId: openai.outputs.openAIId
-    searchResourceId: search.outputs.searchServiceId
+    openAIEndpoint: openai.outputs.openAIEndpoint
+    searchEndpoint: search.outputs.searchEndpoint
     storageAccountId: storage.outputs.storageAccountId
   }
 }
