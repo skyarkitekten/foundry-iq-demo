@@ -86,6 +86,6 @@ output hubId string = aiHub.id
 output hubName string = aiHub.name
 output projectId string = aiProject.id
 output projectName string = aiProject.name
-output projectEndpoint string = 'https://${aiProject.properties.workspaceId}.${location}.api.azureml.ms'
+output projectEndpoint string = 'https://${aiProject.name}.${location}.api.azureml.ms'
 output hubPrincipalId string = aiHub.identity.principalId
 output projectPrincipalId string = aiProject.identity.principalId
