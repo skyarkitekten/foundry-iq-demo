@@ -218,17 +218,14 @@ output location string = location
 // Search outputs
 output searchEndpoint string = search.outputs.searchEndpoint
 output searchServiceName string = search.outputs.searchServiceName
-output searchAdminKey string = search.outputs.searchAdminKey
 
 // OpenAI outputs
 output openAIEndpoint string = openai.outputs.openAIEndpoint
-output openAIKey string = openai.outputs.openAIKey
 output embeddingDeploymentName string = openai.outputs.embeddingDeploymentName
 output chatDeploymentName string = openai.outputs.chatDeploymentName
 
 // Storage outputs
 output storageAccountName string = storage.outputs.storageAccountName
-output storageConnectionString string = storage.outputs.storageConnectionString
 output sampleDataContainerName string = storage.outputs.sampleDataContainerName
 
 // Foundry outputs
@@ -241,12 +238,11 @@ output staticWebAppUrl string = staticWebApp.outputs.staticWebAppUrl
 output staticWebAppName string = staticWebApp.outputs.staticWebAppName
 
 // Environment variables for Static Web App
+// Keys must be set from .env.local or Key Vault — not from deployment outputs
 output environmentVariables object = {
   AZURE_SEARCH_ENDPOINT: search.outputs.searchEndpoint
-  AZURE_SEARCH_API_KEY: search.outputs.searchAdminKey
   AZURE_SEARCH_API_VERSION: '2025-11-01-preview'
   NEXT_PUBLIC_AZURE_OPENAI_ENDPOINT: openai.outputs.openAIEndpoint
-  AZURE_OPENAI_API_KEY: openai.outputs.openAIKey
   FOUNDRY_PROJECT_ENDPOINT: foundry.outputs.projectEndpoint
   FOUNDRY_API_VERSION: '2025-05-01'
   AZURE_AUTH_METHOD: 'managed-identity'

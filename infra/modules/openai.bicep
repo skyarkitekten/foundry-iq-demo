@@ -96,9 +96,10 @@ resource chatDeployment 'Microsoft.CognitiveServices/accounts/deployments@2023-0
 }
 
 // Output OpenAI details
+// NOTE: API key intentionally not output here — retrieve post-deployment via:
+//   az cognitiveservices account keys list -n <name> -g <rg> --query key1
 output openAIId string = openAI.id
 output openAIName string = openAI.name
 output openAIEndpoint string = openAI.properties.endpoint
-output openAIKey string = openAI.listKeys().key1
 output embeddingDeploymentName string = embeddingDeployment.name
 output chatDeploymentName string = chatDeployment.name

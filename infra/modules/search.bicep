@@ -36,7 +36,8 @@ resource searchService 'Microsoft.Search/searchServices@2023-11-01' = {
 }
 
 // Output the search service details
+// NOTE: Admin key intentionally not output here — retrieve post-deployment via:
+//   az search admin-key show --service-name <name> -g <rg> --query primaryKey
 output searchServiceId string = searchService.id
 output searchServiceName string = searchService.name
 output searchEndpoint string = 'https://${searchService.name}.search.windows.net'
-output searchAdminKey string = searchService.listAdminKeys().primaryKey

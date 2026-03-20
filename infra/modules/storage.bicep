@@ -70,9 +70,9 @@ resource sampleContainer 'Microsoft.Storage/storageAccounts/blobServices/contain
 }
 
 // Output storage account details
+// NOTE: Storage key and connection string intentionally not output here — retrieve post-deployment via:
+//   az storage account keys list -n <name> -g <rg> --query [0].value
 output storageAccountId string = storageAccount.id
 output storageAccountName string = storageAccount.name
 output storageAccountPrimaryEndpoint string = storageAccount.properties.primaryEndpoints.blob
 output sampleDataContainerName string = sampleContainer.name
-output storageAccountKey string = storageAccount.listKeys().keys[0].value
-output storageConnectionString string = 'DefaultEndpointsProtocol=https;AccountName=${storageAccount.name};AccountKey=${storageAccount.listKeys().keys[0].value};EndpointSuffix=${environment().suffixes.storage}'
