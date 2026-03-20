@@ -37,3 +37,7 @@ Thumbs.db
 
 # HTTP test files
 *.http.mcp.json
+
+# ARM deployment logs / failure responses (may contain subscription IDs and secrets)
+infra/*.json
+!infra/main.bicepparam
