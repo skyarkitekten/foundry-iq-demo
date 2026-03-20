@@ -110,7 +110,7 @@ var chatModelConfig = {
   'gpt-4.1-mini': {
     version: '2025-04-14'
     capacity: 30
-    skuName: 'Standard'
+    skuName: 'GlobalStandard'
   }
   'gpt-4.1': {
     version: '2025-04-14'
