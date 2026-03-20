@@ -88,6 +88,10 @@ var tags = {
   managedBy: 'Bicep'
 }
 
+// Scale model capacity by environment (TPM in thousands)
+// dev: 30K | staging: 60K | prod: 120K
+var capacityMultiplier = environment == 'prod' ? 4 : environment == 'staging' ? 2 : 1
+
 // Model version and capacity mappings
 var chatModelConfig = {
   'gpt-4o': {
@@ -155,11 +159,11 @@ module openai 'modules/openai.bicep' = {
     embeddingDeploymentName: embeddingModelName
     embeddingModelName: embeddingModelName
     embeddingModelVersion: embeddingModelConfig[embeddingModelName].version
-    embeddingCapacity: embeddingModelConfig[embeddingModelName].capacity
+    embeddingCapacity: embeddingModelConfig[embeddingModelName].capacity * capacityMultiplier
     chatDeploymentName: chatModelName
     chatModelName: chatModelName
     chatModelVersion: chatModelConfig[chatModelName].version
-    chatCapacity: chatModelConfig[chatModelName].capacity
+    chatCapacity: chatModelConfig[chatModelName].capacity * capacityMultiplier
     chatSkuName: chatModelConfig[chatModelName].skuName
   }
 }
