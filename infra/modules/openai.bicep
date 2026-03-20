@@ -41,7 +41,7 @@ param chatCapacity int = 30
 @description('Chat model SKU name (Standard or GlobalStandard)')
 param chatSkuName string = 'Standard'
 
-resource openAI 'Microsoft.CognitiveServices/accounts@2023-05-01' = {
+resource openAI 'Microsoft.CognitiveServices/accounts@2024-10-01' = {
   name: openAIName
   location: location
   tags: tags
@@ -59,7 +59,7 @@ resource openAI 'Microsoft.CognitiveServices/accounts@2023-05-01' = {
 }
 
 // Deploy embedding model
-resource embeddingDeployment 'Microsoft.CognitiveServices/accounts/deployments@2023-05-01' = {
+resource embeddingDeployment 'Microsoft.CognitiveServices/accounts/deployments@2024-10-01' = {
   parent: openAI
   name: embeddingDeploymentName
   sku: {
@@ -76,7 +76,7 @@ resource embeddingDeployment 'Microsoft.CognitiveServices/accounts/deployments@2
 }
 
 // Deploy chat model
-resource chatDeployment 'Microsoft.CognitiveServices/accounts/deployments@2023-05-01' = {
+resource chatDeployment 'Microsoft.CognitiveServices/accounts/deployments@2024-10-01' = {
   parent: openAI
   name: chatDeploymentName
   sku: {

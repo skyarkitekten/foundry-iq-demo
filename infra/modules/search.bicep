@@ -19,7 +19,7 @@ param sku string = 'basic'
 @description('Tags for the search service')
 param tags object = {}
 
-resource searchService 'Microsoft.Search/searchServices@2023-11-01' = {
+resource searchService 'Microsoft.Search/searchServices@2024-07-01' = {
   name: searchServiceName
   location: location
   tags: tags

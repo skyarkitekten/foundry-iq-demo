@@ -34,7 +34,7 @@ param buildProperties object = {
   apiBuildCommand: ''
 }
 
-resource staticWebApp 'Microsoft.Web/staticSites@2023-01-01' = {
+resource staticWebApp 'Microsoft.Web/staticSites@2024-04-01' = {
   name: staticWebAppName
   location: location
   tags: tags

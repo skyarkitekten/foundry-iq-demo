@@ -21,7 +21,7 @@ param searchEndpoint string
 param storageAccountId string
 
 // Create AI Hub (AI Studio workspace)
-resource aiHub 'Microsoft.MachineLearningServices/workspaces@2024-04-01' = {
+resource aiHub 'Microsoft.MachineLearningServices/workspaces@2024-10-01' = {
   name: hubName
   location: location
   tags: tags
@@ -38,7 +38,7 @@ resource aiHub 'Microsoft.MachineLearningServices/workspaces@2024-04-01' = {
 }
 
 // Create AI Project under the hub
-resource aiProject 'Microsoft.MachineLearningServices/workspaces@2024-04-01' = {
+resource aiProject 'Microsoft.MachineLearningServices/workspaces@2024-10-01' = {
   name: projectName
   location: location
   tags: tags
@@ -55,7 +55,7 @@ resource aiProject 'Microsoft.MachineLearningServices/workspaces@2024-04-01' = {
 }
 
 // Create connection to OpenAI
-resource openAIConnection 'Microsoft.MachineLearningServices/workspaces/connections@2024-04-01' = {
+resource openAIConnection 'Microsoft.MachineLearningServices/workspaces/connections@2024-10-01' = {
   parent: aiProject
   name: 'openai-connection'
   properties: {
@@ -70,7 +70,7 @@ resource openAIConnection 'Microsoft.MachineLearningServices/workspaces/connecti
 }
 
 // Create connection to AI Search
-resource searchConnection 'Microsoft.MachineLearningServices/workspaces/connections@2024-04-01' = {
+resource searchConnection 'Microsoft.MachineLearningServices/workspaces/connections@2024-10-01' = {
   parent: aiProject
   name: 'search-connection'
   properties: {
